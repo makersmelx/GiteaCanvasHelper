@@ -12,10 +12,9 @@ export const addUserToTeam = async (username, organization, teamName) => {
         return;
     }
     const id = queryList[0].id;
-    console.log(id);
     await giteaInstance.put(`/teams/${id.toString()}/members/${username}`)
         .then(response => {
-                console.log(`Successfully added ${username} into ${organization}/${teamName}`);
+                // console.log(`Successfully added ${username} into ${organization}/${teamName}`);
             }, error => {
                 console.error(error);
             }

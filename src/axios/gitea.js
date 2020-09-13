@@ -3,8 +3,15 @@ import dotenv from 'dotenv';
 
 dotenv.config();
 export const giteaInstance = axios.create({
-    baseURL: process.env.DEBUG ===1 ? process.env.LOCAL_URL : process.env.BASE_URL,
+    baseURL: process.env.GITEA_BASE_URL,
     headers: {
-        "Authorization": `token ${process.env.DEBUG === 1 ? process.env.LOCAL_TOKEN : process.env.TOKEN}`,
+        "Authorization": `token ${process.env.GITEA_TOKEN}`,
     }
 })
+
+// export const giteaInstance = axios.create({
+//     baseURL: process.env.LOCAL_URL,
+//     headers: {
+//         "Authorization": `token ${process.env.LOCAL_GITEA_TOKEN}`,
+//     }
+// })

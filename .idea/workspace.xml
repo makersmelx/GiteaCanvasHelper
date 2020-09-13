@@ -1,11 +1,28 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="d7a59580-1549-4340-a4d8-d79962f07a49" name="Default Changelist" comment="" />
+    <list default="true" id="d7a59580-1549-4340-a4d8-d79962f07a49" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Courses/courses.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Courses/courses.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Courses/initTeams.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Courses/initTeams.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Teams/addUserToTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Teams/addUserToTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Teams/createTeam.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Teams/createTeam.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Teams/formatTeamName.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/Teams/formatTeamName.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/checkUser.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Users/index.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios/gitea.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios/gitea.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/axios/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/axios/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/yarn.lock" beforeDir="false" afterPath="$PROJECT_DIR$/yarn.lock" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1hJ0fvwq9DiRGZWRwzVtZ9fioFD" />
   <component name="ProjectViewState">
@@ -45,7 +62,12 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1599713994876</updated>
-      <workItem from="1599713995962" duration="11135000" />
+      <workItem from="1599713995962" duration="11606000" />
+      <workItem from="1599734184771" duration="1204000" />
+      <workItem from="1599757721970" duration="767000" />
+      <workItem from="1599787699135" duration="793000" />
+      <workItem from="1599799563816" duration="4489000" />
+      <workItem from="1599975297604" duration="7987000" />
     </task>
     <servers />
   </component>
@@ -53,33 +75,46 @@
     <option name="version" value="3" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="424" y="170" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599714511141">
+    <state x="424" y="170" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1599983060333">
       <screen x="0" y="25" width="1920" height="972" />
     </state>
-    <state x="424" y="170" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.972@0.25.1920.972" timestamp="1599714511141" />
+    <state x="424" y="170" width="1071" height="706" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.25.1920.972@0.25.1920.972" timestamp="1599983060333" />
     <state x="665" y="317" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1599720710307">
       <screen x="0" y="25" width="1920" height="972" />
     </state>
     <state x="665" y="317" key="#com.intellij.fileTypes.FileTypeChooser/0.25.1920.972@0.25.1920.972" timestamp="1599720710307" />
-    <state width="1899" height="260" key="GridCell.Tab.0.bottom" timestamp="1599726641552">
+    <state width="1899" height="243" key="GridCell.Tab.0.bottom" timestamp="1599982881916">
       <screen x="0" y="25" width="1920" height="972" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.bottom/0.25.1920.972@0.25.1920.972" timestamp="1599726641552" />
-    <state width="1899" height="260" key="GridCell.Tab.0.center" timestamp="1599726641551">
+    <state width="1419" height="266" key="GridCell.Tab.0.bottom/0.25.1440.809@0.25.1440.809" timestamp="1599812237853" />
+    <state width="1899" height="243" key="GridCell.Tab.0.bottom/0.25.1920.972@0.25.1920.972" timestamp="1599982881916" />
+    <state width="1419" height="266" key="GridCell.Tab.0.bottom/0.25.1920.973@0.25.1920.973" timestamp="1599931711697" />
+    <state width="1899" height="335" key="GridCell.Tab.0.bottom/0.25.1920.975@0.25.1920.975" timestamp="1599787780431" />
+    <state width="1899" height="243" key="GridCell.Tab.0.center" timestamp="1599982881916">
       <screen x="0" y="25" width="1920" height="972" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.center/0.25.1920.972@0.25.1920.972" timestamp="1599726641551" />
-    <state width="1899" height="260" key="GridCell.Tab.0.left" timestamp="1599726641550">
+    <state width="1419" height="266" key="GridCell.Tab.0.center/0.25.1440.809@0.25.1440.809" timestamp="1599812237852" />
+    <state width="1899" height="243" key="GridCell.Tab.0.center/0.25.1920.972@0.25.1920.972" timestamp="1599982881916" />
+    <state width="1419" height="266" key="GridCell.Tab.0.center/0.25.1920.973@0.25.1920.973" timestamp="1599931711696" />
+    <state width="1899" height="335" key="GridCell.Tab.0.center/0.25.1920.975@0.25.1920.975" timestamp="1599787780429" />
+    <state width="1899" height="243" key="GridCell.Tab.0.left" timestamp="1599982881915">
       <screen x="0" y="25" width="1920" height="972" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.left/0.25.1920.972@0.25.1920.972" timestamp="1599726641550" />
-    <state width="1899" height="260" key="GridCell.Tab.0.right" timestamp="1599726641551">
+    <state width="1419" height="266" key="GridCell.Tab.0.left/0.25.1440.809@0.25.1440.809" timestamp="1599812237852" />
+    <state width="1899" height="243" key="GridCell.Tab.0.left/0.25.1920.972@0.25.1920.972" timestamp="1599982881915" />
+    <state width="1419" height="266" key="GridCell.Tab.0.left/0.25.1920.973@0.25.1920.973" timestamp="1599931711695" />
+    <state width="1899" height="335" key="GridCell.Tab.0.left/0.25.1920.975@0.25.1920.975" timestamp="1599787780427" />
+    <state width="1899" height="243" key="GridCell.Tab.0.right" timestamp="1599982881916">
       <screen x="0" y="25" width="1920" height="972" />
     </state>
-    <state width="1899" height="260" key="GridCell.Tab.0.right/0.25.1920.972@0.25.1920.972" timestamp="1599726641551" />
-    <state x="659" y="143" width="602" height="735" key="find.popup" timestamp="1599722325748">
-      <screen x="0" y="25" width="1920" height="972" />
+    <state width="1419" height="266" key="GridCell.Tab.0.right/0.25.1440.809@0.25.1440.809" timestamp="1599812237853" />
+    <state width="1899" height="243" key="GridCell.Tab.0.right/0.25.1920.972@0.25.1920.972" timestamp="1599982881916" />
+    <state width="1419" height="266" key="GridCell.Tab.0.right/0.25.1920.973@0.25.1920.973" timestamp="1599931711697" />
+    <state width="1899" height="335" key="GridCell.Tab.0.right/0.25.1920.975@0.25.1920.975" timestamp="1599787780430" />
+    <state x="494" y="123" width="581" height="612" key="find.popup" timestamp="1599810288415">
+      <screen x="0" y="25" width="1440" height="809" />
     </state>
+    <state x="494" y="123" width="581" height="612" key="find.popup/0.25.1440.809@0.25.1440.809" timestamp="1599810288415" />
     <state x="659" y="143" width="602" height="735" key="find.popup/0.25.1920.972@0.25.1920.972" timestamp="1599722325748" />
   </component>
 </project>
