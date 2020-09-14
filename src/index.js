@@ -1,5 +1,4 @@
-import {courses, initTeams} from "./Courses";
-import { createStudentTeam } from "./Courses/createStudentTeam";
+import {courses, initTeams,createEveryoneTeam} from "./Courses";
 
 const readlineSync = require('readline-sync');
 
@@ -10,17 +9,18 @@ const callInitTeams = async (organization, groupSetName) => {
     console.log(failList);
 }
 
-const callCreateStudentTeam = async (organization) => {
-    const failList = await createStudentTeam(courses[organization.toLowerCase()]);
+const callCreateStudentTeam = async (organization, teamName) => {
+    const failList = await createEveryoneTeam(courses[organization.toLowerCase()],teamName);
     console.log("Notice that the below students are not adding to the expected Gitea Student Team.\n")
     console.log(failList);
 }
 const argv = process.argv.slice(3);
-let organization, groupSetName;
+let organization, groupSetName,teamName;
 switch (process.argv[2]) {
     case 's':
         organization = argv[0] || readlineSync.question('Type in the course/organization name:\n');
-        callCreateStudentTeam(organization);
+        teamName = argv[1] || readlineSync.question('Type in the overall team name, like Students:\n')
+        callCreateStudentTeam(organization,teamName);
         break;
     case 'i':
         organization = argv[0] || readlineSync.question('Type in the course/organization name:\n');

@@ -2,10 +2,9 @@ import { createTeam,addUserToTeam } from "../Teams";
 import { canvasInstance,giteaInstance } from "../axios";
 import { courseID } from "./courses";
 
-export const createStudentTeam = async (organization) => {
+export const createEveryoneTeam = async (organization, teamName) => {
     const failList = [];
     const studentList = (await canvasInstance.get(`/courses/${courseID[organization]}/students`)).data;
-    const teamName = 'Student';
     const teamID = await createTeam(organization, teamName);
     for (const student of studentList) {
         const studentZH_ENName = student.short_name;

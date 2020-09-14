@@ -52,18 +52,18 @@ npm start s ve482 pgroup2
 
 
 
-### CreateStudentTeam
+### CreateEveryoneTeam
 
-Create a team called Student. Put all the students in this course on Canvas into this team
+Create a team, put all the students of this course on Canvas into this team
 
 ~~~
-npm start i <course name>
+npm start i <course name> <team name>
 ~~~
 
 like
 
 ~~~
-npm start i ve482
+npm start i ve482 Students
 ~~~
 
 
