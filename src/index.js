@@ -1,6 +1,5 @@
 import {courses, initTeams} from "./Courses";
-import {addUserToTeam, createTeam, formatTeamName} from "./Teams";
-import {giteaInstance} from "./axios";
+import { createStudentTeam } from "./Courses/createStudentTeam";
 
 const readlineSync = require('readline-sync');
 
@@ -10,8 +9,28 @@ const callInitTeams = async (organization, groupSetName) => {
     console.log("Notice that the below students are not adding to a expected Gitea Team.\n")
     console.log(failList);
 }
-console.log(process.env.DEBUG);
-const organization = process.argv[2] || readlineSync.question('Type in the course/organization name:\n');
-const groupSetname = process.argv[3] || readlineSync.question('Type in the group set name, like pgroup (if one group is named as pgroup-01):\n')
-callInitTeams(organization, groupSetname);
+
+const callCreateStudentTeam = async (organization) => {
+    const failList = await createStudentTeam(courses[organization.toLowerCase()]);
+    console.log("Notice that the below students are not adding to the expected Gitea Student Team.\n")
+    console.log(failList);
+}
+const argv = process.argv.slice(3);
+let organization, groupSetName;
+switch (process.argv[2]) {
+    case 's':
+        organization = argv[0] || readlineSync.question('Type in the course/organization name:\n');
+        callCreateStudentTeam(organization);
+        break;
+    case 'i':
+        organization = argv[0] || readlineSync.question('Type in the course/organization name:\n');
+        groupSetName = argv[1] || readlineSync.question('Type in the group set name, like pgroup (if one group is named as pgroup-01):\n')
+        callInitTeams(organization, groupSetName);
+        break;
+    case 'h':
+    default:
+        console.log('Unrecognized arguments. For usage guidance, see README.md')
+        break;
+}
+
 
