@@ -14,3 +14,24 @@ export const createEveryoneTeam = async (organization, teamName) => {
     }
     return failList;
 }
+
+export const createEveryoneTeamLoop = async (organization, teamName, delay) => {
+    const studentList = (await canvasInstance.get(`/courses/${courseID[organization]}/students`)).data;
+    const teamID = await createTeam(organization, teamName, { permission: 'write' });
+    const addedList = new Set([])
+    const addStudent = async () => {
+        for (const student of studentList) {
+            const failInfo = await addUserToTeamBySJTUID(student, organization, teamName);
+            if (!failInfo) {
+                if (!addedList.has(student.name)) {
+                    console.log(`Successfully add ${student.name}`);
+                    addedList.add(student.name)
+                }
+            }
+        }
+        console.log('Sleep. Ai, good Night.')
+        console.log('\n============================\n');
+        setTimeout(addStudent, delay);
+    }
+    addStudent();
+}

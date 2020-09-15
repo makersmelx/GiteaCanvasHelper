@@ -32,6 +32,7 @@ npm start <usage> arg1 arg2 ...
 ### Available Usage
 
 - s: [createEveryoneTeam](#createEveryoneTeam)
+- labLoop: [createEveryoneTeamLoop](#createEveryoneTeamLoop)
 - i: [initTeam](#initTeam)
 
 
@@ -66,6 +67,21 @@ like
 
 ~~~
 npm start s ve482 Students
+~~~
+
+
+### CreateEveryoneTeamLoop
+
+Create a team, put all the students of this course on Canvas into this team. Repeat this every <interval> ms.
+
+~~~
+npm start labLoop <course name> <team name> <interval>
+~~~
+
+like
+
+~~~
+npm start labLoop ve482 Students 30000
 ~~~
 
 
