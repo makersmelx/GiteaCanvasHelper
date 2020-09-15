@@ -13,6 +13,8 @@ LOCAL_GITEA_TOKEN=
 
 Define CONNECTION and Set CONNECTION to 'local', so that the program will connect to local server (see axios/gitea.js) 
 
+If you have not set the environment variable, you will be asked to input it at the start of the program
+
 ### Course Setting (Before running)
 
 See src/Courses/courses.js
