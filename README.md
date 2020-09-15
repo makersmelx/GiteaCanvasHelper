@@ -29,7 +29,7 @@ npm start <usage> arg1 arg2 ...
 
 ### Available Usage
 
-- s: [createStudentTeam](#createStudentTeam)
+- s: [createEveryoneTeam](#createEveryoneTeam)
 - i: [initTeam](#initTeam)
 
 
@@ -41,13 +41,13 @@ According the group in a group set on Canvas, create relative teams on Canvas an
 **Warning: If a student are not added into a group in this group set on Canvas, for coding convenience, I will nothing about this student here. Please check him manually.**
 
 ~~~
-npm start s <course name> <groupset name>
+npm start i <course name> <groupset name>
 ~~~
 
 like
 
 ~~~
-npm start s ve482 pgroup2
+npm start i ve482 pgroup2
 ~~~
 
 
@@ -57,13 +57,13 @@ npm start s ve482 pgroup2
 Create a team, put all the students of this course on Canvas into this team
 
 ~~~
-npm start i <course name> <team name>
+npm start s <course name> <team name>
 ~~~
 
 like
 
 ~~~
-npm start i ve482 Students
+npm start s ve482 Students
 ~~~
 
 
