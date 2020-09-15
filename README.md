@@ -1,7 +1,7 @@
 ### .env Setting
 
 ~~~shell
-GITEA_BASE_URL=http://focs.ji.sjtu.edu.cn/git/api/v1/
+GITEA_BASE_URL=https://focs.ji.sjtu.edu.cn/git/api/v1/
 CANVAS_BASE_URL=https://umjicanvas.com/api/v1/
 GITEA_TOKEN=
 CANVAS_TOKEN=
