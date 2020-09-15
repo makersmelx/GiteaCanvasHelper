@@ -1,6 +1,6 @@
-import {addUserToTeam, createTeam} from "../Teams";
+import {addUserToTeamBySJTUID, createTeam} from "../Teams";
 import {formatTeamName} from "../Teams";
-import {canvasInstance, giteaInstance} from "../axios";
+import {canvasInstance} from "../axios";
 import {courseID} from "./courses";
 
 /**
@@ -20,31 +20,17 @@ export const initTeams = async (organization, groupSet) => {
             continue;
         }
         const teamName = formatTeamName(groupSet, groupNum);
-        const teamID = await createTeam(organization, teamName);
+        const teamID = await createTeam(organization, teamName, {});
         // if (teamID === -1) {
         //     console.error(`Create team ${teamName} in ${organization} fail.`)
         // }
         const groupID = group.id;
         const memberList = (await canvasInstance.get(`/groups/${groupID}/users`)).data;
-        for (const member of memberList) {
-            const studentZH_ENName = member.short_name;
-            const studentNameRaw = studentZH_ENName.split(/[,， ]/);
-            const studentName = studentNameRaw.pop();
-            const userList = (await (giteaInstance.get(`/users/search`, {
-                params: {
-                    q: studentName,
-                }
-            }))).data.data;
-            if (userList.length === 0) {
-                // console.error(`Student ${studentName}is not found on Gitea. I will skip him`);
-                failList.push({
-                    name: studentZH_ENName,
-                    reason: 'User does not exist on Gitea'
-                });
-                continue;
+        for (const student of memberList) {
+            const failInfo = await addUserToTeamBySJTUID(student, organization, teamName);
+            if (failInfo) {
+                failList.push(failInfo);
             }
-            const username = userList[0].username;
-            await addUserToTeam(username, organization, teamName);
         }
     }
     return failList;
