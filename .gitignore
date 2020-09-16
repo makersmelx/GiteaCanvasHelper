@@ -106,3 +106,4 @@ dist
 .idea
 *.xml
 .idea/workspace.xml
+courses.json

@@ -17,9 +17,10 @@ If you have not set the environment variable, you will be asked to input it at t
 
 ### Course Setting (Before running)
 
-See src/Courses/courses.js
+See courses.json.example. Rename it to courses.json
 
-Update the course name or the course id on Canvas
+Update the course name or the id of the course on Canvas
+
 
 ### Command
 
