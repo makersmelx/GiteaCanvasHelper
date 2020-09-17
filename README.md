@@ -85,7 +85,10 @@ like
 npm start labLoop ve482 Students 30000
 ~~~
 
-
-
+### Create a personal repo for everyone in an organization
+the Python program shares the same environment variable with Node.js in .env
+~~~shell
+python pythonZhenXiang/create_personal_repo_in_org.py
+~~~
 
 
