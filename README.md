@@ -28,14 +28,21 @@ Update the course name or the id of the course on Canvas
 npm start <usage> arg1 arg2 ... 
 ~~~
 
+### To loop in the lab
+It will in a loop run createEveryoneTeam and Create a personal repo for everyone in an organization
 
+I don't know what I am writing now......
+
+~~~shell
+./loop.sh
+~~~
 
 ### Available Usage
 
 - s: [createEveryoneTeam](#createEveryoneTeam)
 - labLoop: [createEveryoneTeamLoop](#createEveryoneTeamLoop)
 - i: [initTeam](#initTeam)
-
+- [Create a personal repo for everyone in an organization](#Create a personal repo for everyone in an organization)
 
 
 ### initTeam

@@ -2,9 +2,10 @@ import requests
 import json
 import os
 import re
-course_name = input("Give the course to operate:\n").lower()
-dotenv_path = '../.env'
-course_id_json_path = '../courses.json'
+import sys
+course_name = sys.argv[1]
+dotenv_path = '.env'
+course_id_json_path = 'courses.json'
 
 
 def import_env(dotenv_path):
@@ -50,8 +51,7 @@ if __name__ == "__main__":
 
             username = user_list[0]['username']
 
-            repo_name = re.sub(r'[(\u4e00-\u9fa5),， ]', '', student_name) + \
-                str(student_sjtu_id)
+            repo_name = re.sub(r'[(\u4e00-\u9fa5), ]', '', student_name) + str(student_sjtu_id)
 
             # Create personal repo
             url = gitea_base_url + '/orgs/{}/repos'.format(course_name)
