@@ -63,6 +63,6 @@ if __name__ == "__main__":
             }, params={'access_token': gitea_token})
 
             url = gitea_base_url + \
-                '/repos/ve482/{}/collaborators/{}'.format(repo_name, username)
+                '/repos/{}/{}/collaborators/{}'.format(course_name,repo_name, username)
             r = requests.put(url, {'permission': 'write'}, params={
                              'access_token': gitea_token})
