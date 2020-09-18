@@ -8,7 +8,7 @@ import { giteaInstance } from "../axios";
  */
 export const createTeam = async (organization, teamName, config) => {
     const teamID = await giteaInstance.post(`/orgs/${organization}/teams`, {
-        "description": config.description || 'empty',
+        "description": config.description || '',
         "includes_all_repositories": config.includes_all_repositories || false,
         "name": teamName,
         "permission": config.permission || "write",

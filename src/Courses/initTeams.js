@@ -11,7 +11,21 @@ import {courseID} from "./courses";
  */
 export const initTeams = async (organization, groupSet) => {
     const failList = [];
-    const courseGroupList = (await canvasInstance.get(`/courses/${courseID[organization]}/groups`)).data;
+    let courseGroupList = [];
+    let pageCount = 1;
+    while (1) {
+        let onePageGroupList = (await canvasInstance.get(`/courses/${courseID[organization]}/groups`, {
+            params: {
+                page:pageCount
+            }
+        })).data;
+        if (onePageGroupList.length === 0) {
+            break;
+        }
+        courseGroupList = [...courseGroupList, ...onePageGroupList];
+        pageCount = pageCount + 1;
+    }
+    
     const groupList = courseGroupList.filter(group => group.name.search(groupSet) !== -1);
     for (const group of groupList) {
         const groupNum = parseInt(group.name.substr(-2));
