@@ -17,7 +17,7 @@ export const createEveryoneTeam = async (organization, teamName) => {
 
 export const createEveryoneTeamLoop = async (organization, teamName, delay) => {
     const studentList = (await canvasInstance.get(`/courses/${courseID[organization]}/students`)).data;
-    const teamID = await createTeam(organization, teamName, { permission: 'write' });
+    const teamID = await createTeam(organization, teamName, { permission: 'read' });
     const addedList = new Set([])
     const addStudent = async () => {
         for (const student of studentList) {
