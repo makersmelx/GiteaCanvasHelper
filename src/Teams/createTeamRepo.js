@@ -19,10 +19,10 @@ export const createTeamRepo = async (organization, teamName) => {
   }).then(response => {
     switch (response.status) {
       case 409:
-        console.log(`${organization}/${repoName} already exists.`);
+        logger.info(`${organization}/${repoName} already exists.`);
         return Promise.resolve(-1);
       case 422:
-        console.error(`Creating ${organization}/${repoName} fails.`);
+        logger.error(`Creating ${organization}/${repoName} fails.`);
         return Promise.resolve(-1);
       case 201:
         return Promise.resolve(1);
@@ -46,7 +46,7 @@ export const createTeamRepo = async (organization, teamName) => {
       }));
   const queryList = response.data.data;
   if (queryList.length === 0) {
-    console.error(`Team ${teamName} does not exist.`);
+    logger.error(`Team ${teamName} does not exist.`);
     return;
   }
   const teamID = queryList[0].id;
@@ -55,13 +55,13 @@ export const createTeamRepo = async (organization, teamName) => {
       `/teams/${teamID}/repos/${organization}/${repoName}`).then(response => {
     switch (response.status) {
       case 403:
-        console.error(`Grant access of ${teamName} to repo ${repoName} fails.`);
+        logger.error(`Grant access of ${teamName} to repo ${repoName} fails.`);
         break;
       default:
         break;
     }
   }, error => {
-    console.error(error.response);
+    logger.error(error.response);
   });
 
   // add branch protection
@@ -69,7 +69,7 @@ export const createTeamRepo = async (organization, teamName) => {
       `/repos/${organization}/${repoName}/branch_protections`,
       teamRepoMasterProtection(teamName),
   ).then((response) => {
-    console.log(response.status);
+    logger.info(response.status);
   }, (error) => {
     
   });

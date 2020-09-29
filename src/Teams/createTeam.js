@@ -10,15 +10,14 @@ import {projectTeamConfig} from '../settings';
  * @returns {number} id of the team if success, -1 if fail
  */
 export const createTeam = async (organization, teamName, config) => {
-  const teamID = await giteaInstance.post(`/orgs/${organization}/teams`,
+  await giteaInstance.post(`/orgs/${organization}/teams`,
       projectTeamConfig(teamName)).then((response) => {
-    // console.log(`Successfully created ${team} for Organization ${organization}`);
     return Promise.resolve(response.data.id);
   }, (error) => {
     return Promise.resolve(-1);
   });
 
-  const ret = await createTeamRepo(organization, teamName);
+  await createTeamRepo(organization, teamName);
 };
 
 

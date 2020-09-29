@@ -33,7 +33,7 @@ export const initTeams = async (organization, groupSet) => {
     // get a formatted team name from canvas group
     const groupNum = parseInt(group.name.substr(-2));
     if (isNaN(groupNum)) {
-      console.error(
+      logger.error(
           `Invalid format for group name ${group.name}. I suppose that the last two should be numbers. I will skip this team. Please init it on Gitea by yourself.`);
       continue;
     }
