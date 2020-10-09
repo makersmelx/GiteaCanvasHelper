@@ -1,5 +1,6 @@
 import {giteaInstance} from '../axios';
 import {teamRepoMasterProtection} from '../settings';
+import {logger} from '../logger';
 
 /**
  *
@@ -67,10 +68,18 @@ export const createTeamRepo = async (organization, teamName) => {
   // add branch protection
   await giteaInstance.post(
       `/repos/${organization}/${repoName}/branch_protections`,
-      teamRepoMasterProtection(teamName),
+      teamRepoMasterProtection(),
   ).then((response) => {
     logger.info(response.status);
   }, (error) => {
-    
+    logger.error(error.response.data);
   });
+  // await giteaInstance.patch(
+  //     `/repos/${organization}/${repoName}/branch_protections/master`,
+  //     teamRepoMasterProtection(),
+  // ).then((response) => {
+  //   logger.info(response.status);
+  // }, (error) => {
+  //   logger.error(error.response.data);
+  // });
 };

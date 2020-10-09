@@ -2,6 +2,7 @@ import {addUserToTeamBySJTUID, createTeam} from '../Teams';
 import {formatTeamName} from '../Teams';
 import {canvasInstance} from '../axios';
 import {courseID} from './courses';
+import {logger} from '../logger';
 
 /**
  *
@@ -28,7 +29,10 @@ export const initTeams = async (organization, groupSet) => {
   }
 
   const groupList = courseGroupList.filter(
-      group => group.name.search(groupSet) !== -1);
+      group => {
+        let splitName = group.name.split(' ');
+        return splitName[0] === groupSet;
+      });
   for (const group of groupList) {
     // get a formatted team name from canvas group
     const groupNum = parseInt(group.name.substr(-2));
