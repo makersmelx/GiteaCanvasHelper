@@ -74,12 +74,12 @@ export const createTeamRepo = async (organization, teamName) => {
   }, (error) => {
     logger.error(error.response.data);
   });
-  // await giteaInstance.patch(
-  //     `/repos/${organization}/${repoName}/branch_protections/master`,
-  //     teamRepoMasterProtection(),
-  // ).then((response) => {
-  //   logger.info(response.status);
-  // }, (error) => {
-  //   logger.error(error.response.data);
-  // });
+  await giteaInstance.patch(
+      `/repos/${organization}/${repoName}/branch_protections/master`,
+      teamRepoMasterProtection(),
+  ).then((response) => {
+    logger.info(response.status);
+  }, (error) => {
+    logger.error(error.response.data);
+  });
 };

@@ -107,3 +107,4 @@ dist
 *.xml
 .idea/workspace.xml
 courses.json
+.DS_Store
