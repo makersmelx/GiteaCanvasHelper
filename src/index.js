@@ -2,7 +2,7 @@ import {
   courses,
   initTeams,
   createEveryoneTeam,
-} from './Courses';
+} from './courses';
 import {logger} from './logger';
 
 const readlineSync = require('readline-sync');

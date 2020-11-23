@@ -1,4 +1,4 @@
-import {createTeam, addUserToTeamBySJTUID} from '../Teams';
+import {createTeam, addUserToTeamBySJTUID} from '../teams';
 import {canvasInstance} from '../axios';
 import {courseID} from './courses';
 

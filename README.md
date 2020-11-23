@@ -13,11 +13,13 @@ LOCAL_GITEA_TOKEN=
 
 Define CONNECTION and Set CONNECTION to 'local', so that the program will connect to local server (see axios/gitea.js) 
 
+Example is at example/.env.example.  Make a copy of it to the root dir. Rename it to .env
+
 If you have not set the environment variable, you will be asked to input it at the start of the program
 
 ### Course Setting (Before running)
 
-See courses.json.example. Rename it to courses.json
+See example/courses.json.example. Make a copy of it to the root dir. Rename it to courses.json
 
 Update the course name or the id of the course on Canvas
 
@@ -95,7 +97,7 @@ npm start labLoop ve482 Students 30000
 ### Create a personal repo for everyone in an organization
 the Python program shares the same environment variable with Node.js in .env
 ~~~shell
-python pythonZhenXiang/create_personal_repo_in_org.py
+python python/CreatePersonalRepo.py
 ~~~
 
 

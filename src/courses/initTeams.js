@@ -1,5 +1,5 @@
-import {addUserToTeamBySJTUID, createTeam} from '../Teams';
-import {formatTeamName} from '../Teams';
+import {addUserToTeamBySJTUID, createTeam} from '../teams';
+import {formatTeamName} from '../teams';
 import {canvasInstance} from '../axios';
 import {courseID} from './courses';
 import {logger} from '../logger';
