@@ -70,7 +70,7 @@ export const createTeamRepo = async (organization, teamName) => {
       `/repos/${organization}/${repoName}/branch_protections`,
       teamRepoMasterProtection(),
   ).then((response) => {
-    logger.info(response.status);
+    logger.info("Add branch protection");
   }, (error) => {
     logger.error(error.response.data);
   });
@@ -78,7 +78,7 @@ export const createTeamRepo = async (organization, teamName) => {
       `/repos/${organization}/${repoName}/branch_protections/master`,
       teamRepoMasterProtection(),
   ).then((response) => {
-    logger.info(response.status);
+    logger.info("Update branch protection");
   }, (error) => {
     logger.error(error.response.data);
   });
