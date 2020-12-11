@@ -51,7 +51,10 @@ I don't know what I am writing now......
 
 According the group in a group set on Canvas, create relative teams on Canvas and add students to the team
 
+**Notice: when groupset name is `pgroup2`, this function will go through all the groups with name `pgroup2 {id}` rather than all the groups in the group set `pgroup2` on Canvas**
+
 **Warning: If a student are not added into a group in this group set on Canvas, for coding convenience, I will nothing about this student here. Please check him manually.**
+
 
 ~~~
 npm start i <course name> <groupset name>
