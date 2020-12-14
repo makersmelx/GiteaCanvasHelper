@@ -1,3 +1,22 @@
+These are some scripts that I am using when syncing students information and grades from/to Canvas to/from Gitea and JOJ
+### Available Usage
+### Python part
+
+- [Create a personal repo for everyone in an organization](#Create a personal repo for everyone in an organization)
+- [Grade Canvas from JOJ exported CSV](#Grade Canvas from JOJ exported CSV)
+
+#### Node part
+Run `npm install` before everything (skip it for Python usage)
+~~~
+npm start <usage> arg1 arg2 ... 
+~~~
+
+- s: [createEveryoneTeam](#createEveryoneTeam)
+- labLoop: [createEveryoneTeamLoop](#createEveryoneTeamLoop)
+- i: [initTeam](#initTeam)
+
+
+
 ### .env Setting
 
 ~~~shell
@@ -24,27 +43,15 @@ See example/courses.json.example. Make a copy of it to the root dir. Rename it t
 Update the course name or the id of the course on Canvas
 
 
-### Command
-
-~~~
-npm start <usage> arg1 arg2 ... 
-~~~
-
-### To loop in the lab
+### To loop in the lab (to be fixed)
 It will in a loop run createEveryoneTeam and Create a personal repo for everyone in an organization
 
 I don't know what I am writing now......
 
+`It will be fixed if I remember this and that time I am bored.`
 ~~~shell
 ./loop.sh
 ~~~
-
-### Available Usage
-
-- s: [createEveryoneTeam](#createEveryoneTeam)
-- labLoop: [createEveryoneTeamLoop](#createEveryoneTeamLoop)
-- i: [initTeam](#initTeam)
-- [Create a personal repo for everyone in an organization](#Create a personal repo for everyone in an organization)
 
 
 ### initTeam
@@ -100,7 +107,17 @@ npm start labLoop ve482 Students 30000
 ### Create a personal repo for everyone in an organization
 the Python program shares the same environment variable with Node.js in .env
 ~~~shell
-python python/CreatePersonalRepo.py
+python CreatePersonalRepo/CreatePersonalRepo.py
 ~~~
 
+#### Grade Canvas from JOJ exported CSV
+See `GradeFromJOJ` folder
+
+Notice that it only works when starting from this `GiteaCanvasHelper` root directory.
+
+1. Set `CANVAS_BASE_URL` and `CANVAS_TOKEN` at .env in `GiteaCanvasHelper` root directory
+2. Modify all the settings in `settings.py`
+~~~shell script
+python GradeFromJOJ/GradeFromJOJ.py
+~~~
 
