@@ -117,6 +117,7 @@ Notice that it only works when starting from this `GiteaCanvasHelper` root direc
 
 1. Set `CANVAS_BASE_URL` and `CANVAS_TOKEN` at .env in `GiteaCanvasHelper` root directory
 2. Modify all the settings in `settings.py`
+3. You must set a default grade for this assignment
 ~~~shell script
 python GradeFromJOJ/GradeFromJOJ.py
 ~~~

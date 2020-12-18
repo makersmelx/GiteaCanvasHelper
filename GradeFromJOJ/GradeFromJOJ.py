@@ -32,12 +32,15 @@ def joj_score_to_canvas_score(_student):
     due_second = (settings.due_date - settings.start_date).total_seconds()
 
     # calculate final submission timestamp
-    available_second = due_second + 3600 * 24 * 3 + 1
-    last_submissions = []
-    for item in settings.csv_last_submission_timestamp_column:
-        if _student[item] != '-':
-            last_submissions.append(int(_student[item]))
-    finish_second = max(last_submissions) if len(last_submissions) > 0 else available_second
+    if len(settings.csv_last_submission_timestamp_column) > 0:
+        available_second = due_second + 3600 * 24 * len(settings.csv_last_submission_timestamp_column)
+        last_submissions = []
+        for item in settings.csv_last_submission_timestamp_column:
+            if _student[item] != '-':
+                last_submissions.append(int(_student[item]))
+        finish_second = max(last_submissions) if len(last_submissions) > 0 else available_second
+    else:
+        finish_second = due_second
 
     finish_delta = timedelta(seconds=finish_second)
     finish_datetime = settings.start_date + finish_delta
@@ -93,8 +96,10 @@ if __name__ == '__main__':
             joj_scores[student_id] = score
 
     all_submissions = assignment.get_submissions()
+
     for _submission in all_submissions:
         if _submission.user_id in students:
             this_student_sjtu_id = students[_submission.user_id]
-            this_joj_score = int(joj_scores[this_student_sjtu_id])
+            this_joj_score = int(joj_scores.get(this_student_sjtu_id, 0))
+            print('SJTU ID:{}, Score:{}'.format(this_student_sjtu_id, this_joj_score))
         _submission.edit(submission={'posted_grade': this_joj_score})
