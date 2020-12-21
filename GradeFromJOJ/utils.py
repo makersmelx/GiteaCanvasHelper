@@ -1,3 +1,8 @@
+"""
+Canvas fast grading script
+by makersmelx <makersmelx@gmail.com>
+"""
+
 import os
 
 dotenv_path = '.env'

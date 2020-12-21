@@ -109,3 +109,5 @@ dist
 courses.json
 .DS_Store
 tmp
+!.env.example
+__pycache__
