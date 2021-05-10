@@ -11,7 +11,7 @@ const callInitTeams = async (organization, groupSetName) => {
   const failList = await initTeams(courses[organization.toLowerCase()],
       groupSetName);
   logger.warn(
-      'If a student are not added into a group in this group set on Canvas, for coding convenience, I will nothing about this student here. Please check him manually.\n');
+      'If a student are not added into a group in this group set on Canvas, for coding convenience, I will do nothing about this student here. Please check him manually.\n');
   logger.info(
       'Notice that the below students are not adding to a expected Gitea Team.\n');
   logger.info(failList);
