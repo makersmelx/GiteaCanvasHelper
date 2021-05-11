@@ -6,8 +6,8 @@ This repo contains scripts that
 ## Available Usage
 ### Python part
 
-- [Create a personal repo for everyone in an organization](#Create a personal repo for everyone in an organization)
-- [Grade Canvas from JOJ exported CSV](#Grade Canvas from JOJ exported CSV)
+- [Create a personal repo for everyone in an organization](#CreatePersonalRepo)
+- [Grade Canvas from JOJ exported CSV](#GradeFromJOJ)
 
 ### Node.js part
 - [Create a team in the organization which have all students of this course on Canvas page as its members.
@@ -119,21 +119,32 @@ I don't know what I am writing now......
 
 
 ## Python Part
-### Create a personal repo for everyone in an organization
-Notice that it only works when the working dir is this `GiteaCanvasHelper` root directory. \
-On Gitea, every student will have his own personal repository with name `${his_name}${sjtu_id}`\
-the Python program shares the same environment variable with Node.js in .env
+### CreatePersonalRepo
+Create a personal repo for everyone in an organization.
+
+Notice that it only works when the working dir is this `GiteaCanvasHelper` root directory.
+
+On Gitea, every student will have his own personal repository with name `${his_name}${sjtu_id}`
+
+This Python program shares the same environment variable with Node.js in .env
 ~~~shell
 python CreatePersonalRepo/CreatePersonalRepo.py
 ~~~
 
-### Grade Canvas from JOJ exported CSV
-See `GradeFromJOJ` folder \
+### GradeFromJOJ
+Grade Canvas from JOJ exported CSV.
+
+See `GradeFromJOJ` folder 
+
 Notice that it only works when the working dir is this `GiteaCanvasHelper` root directory.
-It is used to upload grades on Canvas based on JOJ 1.0 score. But you can also use this script to upload scores on Canvas based on your own csv file (you should include students' sjtu id. OR you can think that your csv should have the same first three columns as JOJ 1.0 csv format)
+
+It is used to upload grades on Canvas based on JOJ 1.0 score. 
+
 1. Set `CANVAS_TOKEN` at .env in `GiteaCanvasHelper` root directory
 2. Modify all the settings in `settings.py`
 3. You must set a default grade for this assignment for each student before running this script
+
+You can also use this script to upload scores on Canvas based on your own csv file (you should include students' sjtu id. OR if your csv have the same first three columns as JOJ 1.0 csv format)
 
 ~~~shell script
 python GradeFromJOJ/GradeFromJOJ.py
