@@ -10,9 +10,10 @@ This repo contains scripts that
 - [Grade Canvas from JOJ exported CSV](#Grade Canvas from JOJ exported CSV)
 
 ### Node.js part
-- s: [createEveryoneTeam](#createEveryoneTeam)
-- labLoop: [createEveryoneTeamLoop](#createEveryoneTeamLoop)
-- i: [initTeam](#initTeam)
+- [Create a team in the organization which have all students of this course on Canvas page as its members.
+](#createEveryoneTeam) while Its loop version is [Loop version](#createEveryoneTeamLoop).
+- [According the group in a group set on Canvas, create relative teams on Canvas and add students to the team
+](#initTeam)
 
 
 
@@ -78,6 +79,7 @@ npm start i ve482 pgroup2
 
 Create a team in the organization which have all students of this course on Canvas page as its members.
 
+Notice that this function will only add students who have registered on Gitea. If they are to be taught how to register on the lab, you can try loop version so that it can run itself.
 ~~~
 npm start s <course name> <team name>
 ~~~
