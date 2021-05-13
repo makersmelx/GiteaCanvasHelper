@@ -91,7 +91,7 @@ npm start s ve482 Students
 ~~~
 
 
-### CreateEveryoneTeamLoop
+### CreateEveryoneTeamLoop(under maintainance)
 
 Loop version of CreateEveryoneTeam. Create a team in the organization which have all students of this course on Canvas page as its members.
 . Repeat this every <interval> ms.
