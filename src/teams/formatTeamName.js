@@ -1,4 +1,3 @@
 export const formatTeamName = (
-    groupSet, number) => `${groupSet}-${number.toString().
-    padStart(2, '0')}`;
+  groupSet, number) => `${groupSet}-${number.toString().padStart(2, '0')}`;
 

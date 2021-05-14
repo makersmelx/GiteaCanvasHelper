@@ -5,8 +5,9 @@
   "author": "makersmelx",
   "license": "MIT",
   "dependencies": {
-    "axios": "^0.20.0",
+    "axios": "^0.21.1",
     "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.1",
     "readline-sync": "^1.4.10",
     "winston": "^3.3.3"
   },

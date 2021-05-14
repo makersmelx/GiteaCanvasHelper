@@ -3,13 +3,25 @@ import json
 import os
 import re
 import sys
-from GradeFromJOJ import utils
+
+dotenv_path = '.env'
+
+
+def import_env():
+    with open(dotenv_path) as dotenv:
+        for line in dotenv:
+            var = line.strip().split('=')
+            if len(var) == 2:
+                key, value = var[0].strip(), var[1].strip()
+                os.environ[key] = value
+
 
 course_name = sys.argv[1]
+organization_name = sys.argv[2]
 course_id_json_path = 'courses.json'
 
 if __name__ == "__main__":
-    utils.import_env()
+    import_env()
 
     canvas_base_url = os.environ['CANVAS_BASE_URL']
     gitea_base_url = os.environ['GITEA_BASE_URL']
@@ -45,15 +57,19 @@ if __name__ == "__main__":
             repo_name = re.sub(r'[(\u4e00-\u9fa5), ]', '', student_name) + str(student_sjtu_id)
 
             # Create personal repo
-            url = gitea_base_url + '/orgs/{}/repos'.format(course_name)
             r = requests.post(url, {
                 "auto_init": True,
-                "description": "Personal repo for {} in {}".format(student_name, course_name),
+                "description": "Personal repo for {} in {}".format(student_name, organization_name),
                 "name": repo_name,
                 "private": True,
             }, params={'access_token': gitea_token})
 
             url = gitea_base_url + \
-                  '/repos/{}/{}/collaborators/{}'.format(course_name, repo_name, username)
+                  '/repos/{}/{}/collaborators/{}'.format(organization_name, repo_name, username)
             r = requests.put(url, {'permission': 'write'}, params={
                 'access_token': gitea_token})
+
+            # delete here
+            # url = gitea_base_url + '/orgs/{}/repos'.format(organization_name)
+            # r = requests.delete(gitea_base_url + '/repos/{}/{}'.format(organization_name, repo_name),
+            #                     params={'access_token': gitea_token})

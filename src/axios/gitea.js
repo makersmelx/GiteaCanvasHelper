@@ -4,10 +4,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 const readlineSync = require('readline-sync');
 const giteaToken = process.env.GITEA_TOKEN ||
-    readlineSync.question('Type in your gitea token:\n');
+  readlineSync.question('Type in your gitea token:\n');
 const local = process.env.CONNECTION ?
-    process.env.CONNECTION.toLowerCase() === 'local' :
-    false;
+  process.env.CONNECTION.toLowerCase() === 'local' :
+  false;
 const remoteGiteaInstance = axios.create({
   baseURL: process.env.GITEA_BASE_URL,
   headers: {

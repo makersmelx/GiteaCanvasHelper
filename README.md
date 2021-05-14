@@ -81,7 +81,7 @@ Create a team in the organization which have all students of this course on Canv
 
 Notice that this function will only add students who have registered on Gitea. If they are to be taught how to register on the lab, you can try loop version so that it can run itself.
 ~~~
-npm start s <course name> <team name>
+npm start s <course name> <Gitea org name> <team name>
 ~~~
 
 like
@@ -127,8 +127,10 @@ Notice that it only works when the working dir is this `GiteaCanvasHelper` root 
 On Gitea, every student will have his own personal repository with name `${his_name}${sjtu_id}`
 
 This Python program shares the same environment variable with Node.js in .env
+
+Make sure the first arg is in the course.json
 ~~~shell
-python CreatePersonalRepo/CreatePersonalRepo.py
+python CreatePersonalRepo/CreatePersonalRepo.py [course name] [organization name]
 ~~~
 
 ### GradeFromJOJ

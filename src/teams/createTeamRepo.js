@@ -1,6 +1,6 @@
-import {giteaInstance} from '../axios';
-import {teamRepoMasterProtection} from '../settings';
-import {logger} from '../logger';
+import { giteaInstance } from '../axios';
+import { teamRepoMasterProtection } from '../settings';
+import { logger } from '../logger';
 
 /**
  *
@@ -40,11 +40,11 @@ export const createTeamRepo = async (organization, teamName) => {
 
   //grant access to team
   let response = (await giteaInstance.get(`/orgs/${organization}/teams/search`,
-      {
-        params: {
-          q: teamName,
-        },
-      }));
+    {
+      params: {
+        q: teamName,
+      },
+    }));
   const queryList = response.data.data;
   if (queryList.length === 0) {
     logger.error(`Team ${teamName} does not exist.`);
@@ -53,7 +53,7 @@ export const createTeamRepo = async (organization, teamName) => {
   const teamID = queryList[0].id;
 
   await giteaInstance.put(
-      `/teams/${teamID}/repos/${organization}/${repoName}`).then(response => {
+    `/teams/${teamID}/repos/${organization}/${repoName}`).then(response => {
     switch (response.status) {
       case 403:
         logger.error(`Grant access of ${teamName} to repo ${repoName} fails.`);
@@ -67,18 +67,18 @@ export const createTeamRepo = async (organization, teamName) => {
 
   // add branch protection
   await giteaInstance.post(
-      `/repos/${organization}/${repoName}/branch_protections`,
-      teamRepoMasterProtection(),
+    `/repos/${organization}/${repoName}/branch_protections`,
+    teamRepoMasterProtection(),
   ).then((response) => {
-    logger.info("Add branch protection");
+    logger.info('Add branch protection');
   }, (error) => {
     logger.error(error.response.data);
   });
   await giteaInstance.patch(
-      `/repos/${organization}/${repoName}/branch_protections/master`,
-      teamRepoMasterProtection(),
+    `/repos/${organization}/${repoName}/branch_protections/master`,
+    teamRepoMasterProtection(),
   ).then((response) => {
-    logger.info("Update branch protection");
+    logger.info('Update branch protection');
   }, (error) => {
     logger.error(error.response.data);
   });
