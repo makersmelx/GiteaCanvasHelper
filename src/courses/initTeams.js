@@ -10,13 +10,13 @@ import { createTeamRepo } from '../teams/createTeamRepo';
  * @param groupSet
  * @returns {String[]} a list of student that has not been added to team
  */
-export const initTeams = async (organization, groupSet) => {
+export const initTeams = async (courseName, organization, groupSet) => {
   const failList = [];
   let courseGroupList = [];
   let pageCount = 1;
   while (1) {
     let onePageGroupList = (await canvasInstance.get(
-      `/courses/${courseID[organization]}/groups`, {
+      `/courses/${courseID[courseName]}/groups`, {
         params: {
           page: pageCount,
         },

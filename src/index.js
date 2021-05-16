@@ -3,9 +3,9 @@ import { logger } from './logger';
 
 const readlineSync = require('readline-sync');
 
-const callInitTeams = async (organization, groupSetName) => {
+const callInitTeams = async (courseName, organization, groupSetName) => {
   const failList = await initTeams(
-    organization.toLowerCase(), groupSetName
+    courseName.toLowerCase(), organization, groupSetName
   );
   logger.warn(
     'If a student are not added into a group in this group set on Canvas, for coding convenience, I will do nothing about this student here. Please check him manually.\n');
@@ -36,11 +36,12 @@ switch (mode) {
     callCreateStudentTeam(courseName, organization, teamName);
     break;
   case 'i':
-    organization = argv[0] ||
-      readlineSync.question('Type in the course/organization name:\n');
-    groupSetName = argv[1] || readlineSync.question(
+    courseName = argv[0] || readlineSync.question('Type in the course name:\n');
+    organization = argv[1] ||
+      readlineSync.question('Type in the organization name:\n');
+    groupSetName = argv[2] || readlineSync.question(
       'Type in the group set name, like pgroup (if one group is named as pgroup-01):\n');
-    callInitTeams(organization, groupSetName);
+    callInitTeams(courseName, organization, groupSetName);
     break;
   case 'h':
   default:

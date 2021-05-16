@@ -64,13 +64,13 @@ According the group in a group set on Canvas, create relative teams on Canvas an
 
 
 ~~~
-npm start i <course name> <groupset name>
+npm start i <course name> <Gitea org name> <groupset name>
 ~~~
 
 like
 
 ~~~
-npm start i ve482 pgroup2
+npm start i ve482 ve482-org pgroup2
 ~~~
 
 
@@ -87,7 +87,7 @@ npm start s <course name> <Gitea org name> <team name>
 like
 
 ~~~
-npm start s ve482 Students
+npm start s ve482 ve482-org Students
 ~~~
 
 
