@@ -149,6 +149,7 @@ It is used to upload grades on Canvas based on JOJ 1.0 score.
 You can also use this script to upload scores on Canvas based on your own csv file (you should include students' sjtu id. OR if your csv have the same first three columns as JOJ 1.0 csv format)
 
 ~~~shell script
-python GradeFromJOJ/GradeFromJOJ.py
+python GradeFromJOJ/GradeFromJOJ.py [csv_path]
 ~~~
 
+csv_path is the path of the JOJ exported grade csv file

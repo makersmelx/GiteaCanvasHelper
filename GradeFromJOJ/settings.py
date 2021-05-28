@@ -18,7 +18,7 @@ Get them on Canvas (look at the url of the assignment, you will know the id)
 """
 
 """
-CSV
+CSV path. Ignore this if you have type the file path in program arguments
 Notice: all the column starts from 0
 """
 # notice the csv should be exported from joj notice that this python script will be started in the root directory,
@@ -26,14 +26,24 @@ Notice: all the column starts from 0
 # REQUIRED
 csv_path = ''
 
-# the row that records the first student's scores
-# Start from 0, usually no need to change
-# REQUIRED
+"""
+the row that records the first student's scores
+Start from 0, usually no need to change
+REQUIRED
+"""
 content_row = 1
+"""
+the column that records student name
+Start from 0, usually no need to change and no use
+REQUIRED
+"""
+csv_name_column = 1
 
-# the column that records SJTU id
-# Start from 0, usually no need to change
-# REQUIRED
+"""
+the column that records SJTU id
+Start from 0, usually no need to change
+REQUIRED
+"""
 csv_sjtu_id_column = 2
 
 """
@@ -51,8 +61,8 @@ adjust to canvas score
 # This adjust is applied after calculating Canvas score from csv and before bonus/deduction
 # Modify the example below, the value should be the Canvas score
 extra_adjust = {
-    "517370910xxx": 1,
-    "517370910xxy": -1
+    "517370910xxx": 10,
+    "517370910xxy": -10
 }
 
 # direct reassign point on Canvas to a student, will do this after all the add-weight calculation, bonus and deduction
@@ -60,6 +70,7 @@ direct_reassign = {
     "517370910xxx": 100,
     "517370910xxy": 0
 }
+
 
 """
 Below are some features that are nonsense now

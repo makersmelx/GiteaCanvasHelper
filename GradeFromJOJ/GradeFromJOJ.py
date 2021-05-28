@@ -8,12 +8,14 @@ import os
 import csv
 from datetime import timedelta
 from canvasapi import Canvas
+import sys
 import settings
 
 
 def joj_score_to_canvas_score(_student):
     print('==============================')
-    print(_student[1])
+    print("{}\t{}".format(
+        _student[settings.csv_name_column], _student[settings.csv_sjtu_id_column]))
     _score = 0
     if len(settings.csv_score_column) != len(settings.weight):
         print("Make sure that you can add a weight to all the columns you would like to include")
@@ -30,8 +32,6 @@ def joj_score_to_canvas_score(_student):
         _adjust = settings.extra_adjust[_student[settings.csv_sjtu_id_column]]
         _score += _adjust
         print("Extra adjust: {}".format(_adjust))
-
-    print('Raw score: {}'.format(_score))
 
     print('Now score: {}'.format(_score))
 
@@ -56,7 +56,8 @@ if __name__ == '__main__':
         students[_student.id] = _student.sis_login_id
 
     joj_scores = {}
-    with open(settings.csv_path) as joj_csv:
+    csv_path = sys.argv[1] if sys.argv[1] else settings.csv_path
+    with open(csv_path) as joj_csv:
         joj_score = csv.reader(joj_csv)
         skip_line = 0
         for student_row in joj_score:
@@ -72,6 +73,7 @@ if __name__ == '__main__':
     for _submission in all_submissions:
         if _submission.user_id in students:
             this_student_sjtu_id = students[_submission.user_id]
-            this_joj_score = int(joj_scores.get(this_student_sjtu_id, 0))
-            print('SJTU ID:{}, Score:{}'.format(this_student_sjtu_id, this_joj_score))
+            this_joj_score = joj_scores.get(this_student_sjtu_id, 0)
+            print('SJTU ID:{}, Score:{}'.format(
+                this_student_sjtu_id, this_joj_score))
         _submission.edit(submission={'posted_grade': this_joj_score})
