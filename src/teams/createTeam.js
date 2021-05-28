@@ -18,7 +18,6 @@ export const createTeam = async (organization, teamName, config) => {
       projectTeamConfig(teamName, config));
     // console.log(response.request);
     // console.log(projectTeamConfig(teamName, config));
-    console.log(response.data);
   } catch (e) {
     logger.error(e.message);
     logger.error(`Create team ${teamName} in ${organization} fails.`);

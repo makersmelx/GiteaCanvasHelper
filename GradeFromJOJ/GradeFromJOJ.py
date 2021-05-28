@@ -32,8 +32,6 @@ def joj_score_to_canvas_score(_student):
         print("Extra adjust: {}".format(_adjust))
 
     print('Raw score: {}'.format(_score))
-    if settings.has_bonus and finish_second <= bonus_second:
-        _score += _score * settings.bonus_portion
 
     print('Now score: {}'.format(_score))
 

@@ -111,3 +111,4 @@ courses.json
 tmp
 !.env.example
 __pycache__
+GradeFromJOJ/settings.py
