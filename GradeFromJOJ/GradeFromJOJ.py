@@ -11,6 +11,10 @@ from canvasapi import Canvas
 import sys
 import settings
 
+canvas_full_score = sys.argv[4]
+joj_full_score = sys.argv[5]
+cli_weight = float(canvas_full_score)/float(joj_full_score)
+
 
 def joj_score_to_canvas_score(_student):
     print('==============================')
@@ -20,6 +24,9 @@ def joj_score_to_canvas_score(_student):
     if len(settings.csv_score_column) != len(settings.weight):
         print("Make sure that you can add a weight to all the columns you would like to include")
         exit(1)
+    if len(sys.argv) == 6:
+        # if set canvas and joj full score in cli args, then simply use the full score on JOJ to calculate
+        settings.weight = [cli_weight]
     for i in range(len(settings.csv_score_column)):
         _column_grade = _student[settings.csv_score_column[i]]
         # todo: complete non number detection
@@ -48,8 +55,8 @@ if __name__ == '__main__':
     canvas_base_url = os.environ['CANVAS_BASE_URL']
     canvas_token = os.environ['CANVAS_TOKEN']
     umji_canvas = Canvas('https://umjicanvas.com', canvas_token)
-    course = umji_canvas.get_course(settings.course_id)
-    assignment = course.get_assignment(settings.assignment_id)
+    course = umji_canvas.get_course(sys.argv[2])
+    assignment = course.get_assignment(sys.argv[3])
     students = {}
 
     for _student in course.get_users(enrollment_type=['student']):

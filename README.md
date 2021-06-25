@@ -143,13 +143,21 @@ Notice that it only works when the working dir is this `GiteaCanvasHelper` root 
 It is used to upload grades on Canvas based on JOJ 1.0 score. 
 
 1. Set `CANVAS_TOKEN` at .env in `GiteaCanvasHelper` root directory
-2. Modify all the settings in `settings.py`
+2. <del>Modify all the settings in `settings.py`</del>
 3. You must set a default grade for this assignment for each student before running this script
 
 You can also use this script to upload scores on Canvas based on your own csv file (you should include students' sjtu id. OR if your csv have the same first three columns as JOJ 1.0 csv format)
 
 ~~~shell script
-python GradeFromJOJ/GradeFromJOJ.py [csv_path]
+python GradeFromJOJ/GradeFromJOJ.py [csv_path] [course_id] [assignment_id] [canvas_full_score] [joj_full_score]
 ~~~
 
 csv_path is the path of the JOJ exported grade csv file
+
+course_id: appeared in Canvas course page url, id of the course
+
+course_id: appeared in Canvas assignment page url, id of the assignment
+
+canvas_full_score: full score of this assignment on canvas
+
+joj_full_score: full score of this assignment on joj

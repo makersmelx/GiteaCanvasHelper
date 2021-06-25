@@ -53,7 +53,7 @@ remember that for each column index please give them a weight in the second list
 # example: csv_score_column = [7, 8], weight = [0.1, 0.2], suppose that all data in one row is a list called row.
 # Grade for this student is ``row[7] * 0.1 + row[8] * 0.2``
 csv_score_column = [3]
-weight = [0.1]
+weight = [float(100/270)]
 
 """
 adjust to canvas score
