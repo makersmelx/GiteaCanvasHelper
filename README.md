@@ -134,6 +134,9 @@ python CreatePersonalRepo/CreatePersonalRepo.py [course name] [organization name
 ~~~
 
 ### GradeFromJOJ
+**!!!: This feature has been moved to a separated repo now at [auto-csv-grader](https://github.com/makersmelx/canvas-csv-autograder). It is not going to be updated here anymore**
+  
+  
 Grade Canvas from JOJ exported CSV.
 
 See `GradeFromJOJ` folder 
