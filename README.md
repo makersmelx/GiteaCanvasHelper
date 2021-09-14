@@ -15,7 +15,13 @@ This repo contains scripts that
 - [According the group in a group set on Canvas, create relative teams on Canvas and add students to the team
 ](#initTeam)
 
+## Before use
 
+1. Install Node.js on your system
+2. Go the root directory and
+~~~
+npm install
+~~~
 
 ## .env Setting
 
