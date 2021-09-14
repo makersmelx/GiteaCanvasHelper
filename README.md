@@ -35,6 +35,14 @@ If you have not set the environment variable, you will be asked to input the mis
 
 (Only for testing local Gitea): If you would like to test your local Gitea instance, otherwise please ignore. Define CONNECTION and Set CONNECTION to 'local', so that the program will connect to local server (see axios/gitea.js) 
 
+## Course Setting (Before running)
+
+See `example/courses.json.example`. Make a copy of it to the root dir. Rename it to `courses.json`
+
+**Please update the course name, or the id of the course on Canvas.**
+
+For the usage below, when you need to type in a course name, please **use the course name rather than the actually id here**
+
 ## Org and Team in Gitea
 In Gitea, you cannot add a user to an organization directly. Instead, you should invite the user to at least one team in this organization, to add the user to the organization.
 
@@ -45,13 +53,7 @@ Basic usage will all be like:
 npm start <usage> arg1 arg2 ... 
 ~~~
 
-### Course Setting (Before running)
 
-See example/courses.json.example. Make a copy of it to the root dir. Rename it to courses.json
-
-Please update the course name, or the id of the course on Canvas.
-
-For the below usage, please use the course name that appears in the json file.
 
 
 ### initTeam
